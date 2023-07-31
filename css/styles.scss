@@ -1,0 +1,714 @@
+/* Global Variables */
+$heading-padding: 20px 0px 10px 0px;
+$heading-margin: 0px 0px 0px 0px;
+$major-container-border-radius: 30px;
+$game-font: 'Press Start 2P', cursive;
+$white-game-border: 3px solid white; 
+
+@mixin rounded-button($text-color, $background-color, $button-border, $font, $border-radius){
+    color: $text-color;
+    background-color: $background-color;
+    border: $button-border;
+    font-family: $font;
+    border-radius: $border-radius;
+}
+
+/*
+HTML selectors
+*/
+
+html {
+    box-sizing: border-box;
+    font-family: 'PT Sans', Verdana, Geneva, Tahoma, sans-serif;
+    font-size:1em;
+    color:rgb(28, 6, 6);
+}
+  
+*{
+    box-sizing: inherit;
+}
+
+body{
+    margin:10px;
+}
+
+a{
+    text-decoration-line:none;
+    font-weight:bold;
+    color:inherit;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+header{
+    width:100%;
+
+    p{
+        font-size:1.5em;
+        text-transform:uppercase;
+        text-align: center;
+        padding:15px 0 15px 0;
+        margin:0;
+    }
+}
+
+main{
+    display:flex;
+	flex-direction:column;
+    flex: 1;
+
+    img {
+        max-width:100%;
+        height:auto;
+        max-height:35vh;
+        align-self:center;
+    }
+
+    li{
+        padding-top:5px;
+    }
+}
+
+p{
+    padding-top:3px;
+    padding-bottom:3px;
+    margin-bottom:5px;
+    line-height:1.4em;
+}
+
+h1{
+    font-size:1.5em;
+    font-weight:bold;
+
+    padding: $heading-padding;
+    margin: $heading-margin;
+}
+
+h2{
+    font-size:1.3em;
+    font-weight:bold;
+
+    padding: $heading-padding;
+    margin: $heading-margin;
+}
+
+h3{
+    font-size:1.2em;
+    font-weight:bold;
+
+    padding: $heading-padding;
+    margin: $heading-margin;
+}
+
+h4{
+    font-size:1.1em;
+    font-weight:bold;
+    
+    padding: $heading-padding;
+    margin: $heading-margin;
+}
+
+h5{
+    font-size:1em;
+    font-weight:bold;
+    
+    padding: $heading-padding;
+    margin: $heading-margin;
+}
+
+h6{
+    font-size:0.9em;
+    font-weight:bold;
+    
+    padding: $heading-padding;
+    margin: $heading-margin;
+}
+
+nav{
+    padding-top:5px;
+    padding-bottom:4px;
+
+    li{
+        a{
+            display:block;
+            font-size:1.2em;
+            padding:8px 5px 8px 10px;
+
+            &:link, &:visited, &:hover{
+                color:rgb(255, 255, 255);
+                background:rgba(48, 48, 255, 0.863);
+                text-decoration: none;
+            }
+        }
+    }
+
+    ul{
+        display:block;
+        list-style:none;
+        text-align:left;
+        padding-left:0px;
+    }
+}
+
+section{
+    margin-bottom: 10px;
+    border-radius:10px;
+}
+
+table{
+    border: 1px solid black;
+    border-collapse:collapse;
+    text-align: center;
+    margin:5px;
+
+    td, th{
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        padding: 4px 1px 4px 1px;
+    }
+
+    th{
+        background-color: rgb(73, 73, 73);
+        color:white;
+    }
+
+    tr:nth-child(2n+1){
+        background-color: grey;
+        color:white;
+    }
+}
+
+ul{
+    padding-left:30px;
+    line-height: 1.2em;
+    list-style: circle;
+    margin-top:5px;
+}
+
+ol{
+    padding-left:30px;
+    line-height: 1.2em;
+    list-style:decimal;
+    margin-top:5px;
+}
+
+strong{
+    font-weight: bold;
+}
+
+em{
+    font-style: italic;
+}
+
+footer{
+    display:flex;
+    flex-direction: column;
+    padding-bottom:10px;
+}
+
+button{
+    padding:4px;
+    margin: 10px 4px 0px 4px;
+    min-width:80px;
+    border-radius: 10px;
+    background-color: white;
+    color:#0033cc;
+    font-weight: bold;
+    outline:none;
+    box-shadow: none;
+
+    &:hover{
+        color:white;
+        background-color: #0033cc;
+        cursor:pointer;
+    }
+
+    &:active{
+        color:white;
+        background-color: #8ba8ff;
+        cursor:pointer;
+    }
+}
+
+html, body, div, span, 
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, code, em, img, strong, var, ol, ul, li,
+table, tbody, tfoot, thead, tr, th, td,
+article,footer, header, nav, section{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+article, aside, footer, header, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+class selectors
+*/
+
+.header-img{
+    height:auto;
+    width:100%;
+    display:block;
+    margin:0 auto;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    -khtml-box-shadow: 10px 10px 5px #ccc;
+}
+
+.collapsible{
+    display:block;
+    font-size:1.2em;
+    font-weight: bold;
+    color:rgb(255, 255, 255);
+    background:rgba(0, 0, 175, 0.918);
+    border:none;
+    width:100%;
+    text-align:center;
+    cursor:pointer;
+    
+    padding:8px 5px 8px 10px;
+
+    svg{
+        fill:rgb(255, 255, 255);
+    }
+}
+
+.nav-options{
+    margin-top:0px;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+.social-media{
+    width: 75%;
+    align-self: center;
+    margin-top:20px;
+
+    ul{
+        display:flex;
+        justify-content: space-between;
+        list-style:none;
+        padding-left:0;
+        padding-right:20px;
+    }
+
+    img{
+        max-width:30px;
+        width:100%;
+        opacity: 0.7;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+}
+
+.credits{
+    color:grey;
+    display:flex;
+    list-style: none;
+    justify-content:space-between;
+    padding:15px 10px 0 10px;
+}
+
+/* from https://www.w3.org/WAI/tutorials/forms/labels/ */
+.visuallyhidden{
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/* adapted from https://blog.hubspot.com/website/css-fade-in */
+.fade-in-image{
+    animation: fadeIn 1s forwards;
+    -webkit-animation: fadeIn 1s forwards;
+    -moz-animation: fadeIn 1s forwards;
+    -o-animation: fadeIn 1s forwards;
+    -ms-animation: fadeIn 1s forwards;
+}
+
+.fade-out-image{
+    animation: fadeOut 1s forwards;
+    -webkit-animation: fadeOut 1s forwards;
+    -moz-animation: fadeOut 1s forwards;
+    -o-animation: fadeOut 1s forwards;
+    -ms-animation: fadeOut 1s forwards;
+}
+
+.shake-image{
+    animation: shake;
+    animation-duration: 0.5s;
+}
+
+/*
+id selectors
+*/
+
+#wrapper{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+	flex-direction:column;
+	min-height:100vh;
+}
+
+#inspiration{
+    padding-bottom: 0px;
+    color:rgb(68, 68, 68);
+    font-size: 0.8em;
+}
+
+#game-container{
+    margin-top:20px;
+    padding: 0px;
+    border: 2px solid black;
+    border-radius: $major-container-border-radius;
+    background-color: white;
+    position: relative;
+    min-width: 800px;
+    min-height: 530px;
+}
+
+#welcome{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+    padding: 20px;
+    border-radius: $major-container-border-radius;
+}
+
+#welcome-message{
+    font-size: 4em;
+    justify-self: center;
+    padding: 40px 0 40px 0;
+}
+
+#rules{
+    padding:10px 5px 10px 5px;
+}
+
+#begin-btn{
+    width: 200px;
+    height: 50px;
+    font-size: 1.7em;
+    padding-bottom: 10px;
+}
+
+#active-game-container{
+    position: absolute;
+    border-radius: $major-container-border-radius;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    padding: 20px;
+
+    display: none;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-areas:
+    "player       round    opponent"
+    "player-dice  play     opponent-dice"
+    "summary      summary  summary";
+    grid-template-rows: 25% 40%;
+    row-gap: 10px;
+    column-gap: 10px;
+
+    font-family: $game-font;
+    font-size: 0.9em;
+    color: white;
+
+    background-color: black;
+}
+
+#player-title{
+    border: $white-game-border;
+    grid-area: player;
+}
+
+#round-tracker{
+    grid-area: round;
+
+    display:flex;
+    align-items: center;
+    justify-self: center;
+    font-size: 1.3em;
+    font-family: $game-font;
+}
+
+#opponent-title{
+    grid-area: opponent;
+
+    border: $white-game-border;
+}
+
+#player-title, #opponent-title{
+    padding: 10px;
+}
+
+#player-image-container{
+    grid-area: player-dice;
+}
+
+#opponent-image-container{
+    grid-area: opponent-dice;
+}
+
+#game-summary{
+    grid-area: summary;
+
+    padding: 10px;
+    border: $white-game-border;
+}
+
+#play-btn{
+    grid-area: play;
+
+    justify-self: center;
+    align-self: center;
+    min-width: 50%;
+    min-height: 30%;
+    
+    @include rounded-button(black, white, $white-game-border, $game-font, 10px);
+
+    line-height: 1.7em;
+
+    &:hover{
+        color: white;
+        background-color: black;
+    }
+}
+
+#player-image-container, #opponent-image-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+#mute{
+    position:absolute;
+    bottom: 30px;
+    right: 30px;
+    height: 30px;
+    width: 30px;
+    border: $white-game-border;
+    border-radius: 5px;
+    background-color: white;
+}
+
+
+
+/*
+Media queries
+*/
+
+/* from https://blog.hubspot.com/website/css-fade-in */
+@keyframes fadeIn {
+    0% {opacity:0; visibility: hidden;}
+    100% {opacity:1; visibility: visible;}
+  }
+  
+@-moz-keyframes fadeIn {
+    0% {opacity:0; visibility: hidden;}
+    100% {opacity:1; visibility: visible;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0; visibility: hidden;}
+    100% {opacity:1; visibility: visible;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0; visibility: hidden;}
+    100% {opacity:1; visibility: visible;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0; visibility: hidden;}
+    100% {opacity:1; visibility: visible;}
+}
+
+@keyframes fadeOut {
+    0% {opacity:1; visibility: visible;}
+    100% {opacity:0; visibility: hidden;}
+  }
+  
+@-moz-keyframes fadeOut {
+    0% {opacity:1; visibility: visible;}
+    100% {opacity:0; visibility: hidden;}
+}
+
+@-webkit-keyframes fadeOut {
+    0% {opacity:1; visibility: visible;}
+    100% {opacity:0; visibility: hidden;}
+}
+
+@-o-keyframes fadeOut {
+    0% {opacity:1; visibility: visible;}
+    100% {opacity:0; visibility: hidden;}
+}
+
+@-ms-keyframes fadeOut {
+    0% {opacity:1; visibility: visible;}
+    100% {opacity:0; visibility: hidden;}
+}
+
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Medium sized-screens */
+@media (min-width:550px){
+    main img {
+        max-width:75%;
+        height:auto;
+        max-height:35vh;
+        align-self:center;
+    }
+
+    #qol{
+        display:flex;
+        flex: 1 1;
+        justify-content: space-between;
+    }
+
+    .screenshot-link{
+        align-self:center;
+
+        img{
+            padding-top:0;
+        }
+    }
+}
+
+/* Full desktop screens */
+@media (min-width:800px){
+    nav{
+        li{
+            a{
+                padding-right:10px;
+                border-right:1px solid white;
+                margin-right:10px;
+                margin-left:10px;
+                border-radius: 8px;
+                text-align: center;
+                background:rgba(0, 0, 175, 0.918);
+
+                &:link, &:visited{
+                    background:rgba(48, 48, 255, 0.863);
+                }
+
+                &:hover{
+                    background:rgba(84, 84, 252, 0.863);
+                }
+
+                &:active{
+                    color:rgba(48, 48, 255, 0.863);
+                    background:white;
+                }
+            }
+        }
+    }
+
+    .collapsible{
+        display:none;
+    }
+
+    .nav-options{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style:none;
+        text-align:left;
+        max-height:100vh;
+    }
+
+    #sections{
+        display:flex;
+        flex-wrap:wrap;
+    }
+}
+
+
+@media print{
+    /* print full URLs for hyperlinks */
+    a[href^="http"]:after{
+		content:" URL: (" attr(href) ") ";		
+	}
+
+	/* hide certain portions of the page */
+	header, nav, aside, footer{
+		display:none;
+	}
+
+	/* break pages across headings */
+	h1, h2, h3, h4, h5, h6{
+		page-break-after:avoid;
+	}
+
+    p{
+        page-break-inside:avoid;
+    }
+
+	/* 
+	start new page with each new section
+	(but dont page break with the first section)
+	*/
+	section ~ section{
+		page-break-before:always;
+	}
+}

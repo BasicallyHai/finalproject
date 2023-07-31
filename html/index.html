@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>COMP 2132 Final Project</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <script src="../scripts/game.js" defer></script>
+    <script src="../scripts/scripts.js" defer></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <p>Alvin Choi</p>
+            <nav>
+                <button type="button" class="collapsible">Menu</button>
+                <ul class="nav-options">
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>COMP 2132 Final Project</h1>
+            
+            <p id="inspiration">Music by Jun Murayama for the Blue Lock Anime</p>
+
+            <div id="game-container">
+
+                <div id="welcome">
+                    <p id="welcome-message">Dice Game</p>
+                    <div id="rules">
+                        <h3>Rules and How to Play:</h3>
+                        <ol>
+                            <li>There will be three rounds.</li>
+                            <li>Each round, you and the computer will both roll a pair of dice.</li>
+                            <li>Each round you will earn a score based on your dice roll:
+                                <ul>
+                                    <li>Your score for that round is the sum of the two dice values</li>
+                                    <li>If you roll doubles (e.g. a 3 and a 3), then your score will be multiplied by 2.</li>
+                                    <li>Rolling a 1 will give you a score of 0 for that round.</li>
+                                </ul>
+                            </li>
+                            <li>After three rounds, the player with the highest total score wins.</li>
+                        </ol>
+                    </div>
+                    <button id="begin-btn">Begin!</button>
+                </div>
+                
+                <div id="active-game-container">
+                    <div id="player-title">
+                        <p>You</p>
+                        <div id="player-stats"></div>
+                    </div>
+                    <div id="round-tracker">
+                        <p>Round:1</p>
+                    </div>
+                    <div id="opponent-title">
+                        <p>Opponent</p>
+                        <div id="opponent-stats"></div>
+                    </div>
+                    <div id="player-image-container">
+                        <img src='../images/dice.jpg' alt="dice cup">
+                    </div>
+                    <button id="play-btn">Click to Roll</button>
+                    <div id="opponent-image-container">
+                        <img src='../images/dice.jpg' alt="dice cup">
+                    </div>
+                    <div id="game-summary">
+                        <p>Get ready for this match!!</p>
+                    </div>
+                    <input type="image" id="mute" src="../images/mute_icon.svg" alt="mute-toggle"><audio id="background-music" src="../audio/BLUELOCK Blue Lock OST.mp3"></audio>
+                </div>
+
+            </div>
+            
+        </main>
+
+        <footer>
+            <div class="social-media">
+                <ul>
+                    <li><a href="https://github.com/BasicallyHai" target="_blank"><img src="../images/github.svg" alt="Github logo"></a></li>
+                </ul>
+            </div>
+            <ul class="credits">
+                <li>Alvin Choi</li>
+                <li>2023</li>
+                <li>COMP 2132</li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>
